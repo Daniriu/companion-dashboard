@@ -1,68 +1,31 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#172033">
-  <meta name="description" content="Panel privado de seguimiento basado en datos locales del dispositivo.">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css">
-  <title>Companion Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#172033">
+<meta name="description" content="Panel privado de seguimiento estimado basado en datos locales.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
+<title>Companion Dashboard</title>
 </head>
 <body>
-  <main class="app-shell">
-    <header class="app-header">
-      <div>
-        <p class="eyebrow">Companion Dashboard</p>
-        <h1>Tu panel privado</h1>
-      </div>
-      <span class="privacy-badge">Solo en este dispositivo</span>
-    </header>
-
-    <section id="setup-card" class="card setup-card" hidden>
-      <h2>Configuración inicial</h2>
-      <p>Define una fecha base y la duración del ciclo. Estos datos se guardan únicamente en el almacenamiento local de este dispositivo.</p>
-      <form id="setup-form" class="form-grid">
-        <label>Fecha base<input id="setup-base-date" type="date" required></label>
-        <label>Duración del ciclo (días)<input id="setup-cycle-length" type="number" min="1" max="60" value="28" required></label>
-        <button class="primary" type="submit">Guardar configuración</button>
-      </form>
-    </section>
-
-    <div id="app-content" hidden>
-      <section class="card hero-card">
-        <div>
-          <p class="eyebrow">Estado estimado</p>
-          <h2 id="current-status">—</h2>
-          <p id="status-detail" class="muted">—</p>
-        </div>
-        <div class="hero-number"><span id="current-day">—</span><small>día del ciclo</small></div>
-      </section>
-
-      <section class="stats-grid" aria-label="Resumen">
-        <article class="card stat-card"><span>Próxima fecha estimada</span><strong id="next-date">—</strong></article>
-        <article class="card stat-card"><span>Días restantes</span><strong id="days-left">—</strong></article>
-        <article class="card stat-card"><span>Duración configurada</span><strong id="configured-length">—</strong></article>
-      </section>
-
-      <section class="card">
-        <div class="section-heading"><div><p class="eyebrow">Calendario</p><h2>Próximos ciclos</h2></div><button id="today-button" class="secondary" type="button">Hoy</button></div>
-        <div id="calendar-list" class="calendar-list"></div>
-      </section>
-
-      <section class="card">
-        <div class="section-heading"><div><p class="eyebrow">Preferencias</p><h2>Configuración</h2></div></div>
-        <form id="settings-form" class="form-grid">
-          <label>Fecha base<input id="settings-base-date" type="date" required></label>
-          <label>Duración del ciclo (días)<input id="settings-cycle-length" type="number" min="1" max="60" required></label>
-          <button class="primary" type="submit">Actualizar</button>
-        </form>
-        <button id="clear-data" class="danger" type="button">Borrar todos los datos locales</button>
-      </section>
-    </div>
-
-    <footer><p>Sin cuentas, sin servidor y sin datos personales incluidos en el código.</p></footer>
-  </main>
-  <script src="app.js"></script>
+<main class="app-shell">
+<header class="app-header"><div><p class="eyebrow">Companion Dashboard</p><h1>Tu panel privado</h1></div><span class="privacy-badge">Solo en este dispositivo</span></header>
+<section id="setup-card" class="card setup-card" hidden>
+<h2>Configuración inicial</h2><p>Introduce una fecha base y la duración del ciclo. Se guardan únicamente en este dispositivo.</p>
+<form id="setup-form" class="form-grid"><label>Fecha base<input id="setup-base-date" type="date" required></label><label>Duración del ciclo<input id="setup-cycle-length" type="number" min="1" max="60" value="28" required></label><button class="primary" type="submit">Guardar configuración</button></form>
+</section>
+<div id="app-content" hidden>
+<section id="phase-card" class="card phase-card"><div><p class="eyebrow">Fase estimada</p><h2 id="phase-name">—</h2><p id="phase-description" class="muted">—</p></div><div class="phase-icon" id="phase-icon">◷</div></section>
+<section class="phase-track card" aria-label="Progreso estimado del ciclo"><div class="track-labels"><span>Menstruación</span><span>Folicular</span><span>Ovulación</span><span>Lútea</span></div><div class="track"><span id="track-progress"></span><i class="marker m1"></i><i class="marker m2"></i><i class="marker m3"></i></div></section>
+<section class="card hero-card"><div><p class="eyebrow">Estado estimado</p><h2 id="current-status">—</h2><p id="status-detail" class="muted">—</p></div><div class="hero-number"><span id="current-day">—</span><small>día del ciclo</small></div></section>
+<section class="stats-grid"><article class="card stat-card"><span>Próxima fecha estimada</span><strong id="next-date">—</strong></article><article class="card stat-card"><span>Días restantes</span><strong id="days-left">—</strong></article><article class="card stat-card"><span>Duración configurada</span><strong id="configured-length">—</strong></article></section>
+<section class="card"><div class="section-heading"><div><p class="eyebrow">Orientación</p><h2>Recomendaciones para esta fase</h2></div></div><div id="recommendations" class="recommendations"></div><p class="disclaimer">Orientación general basada en una estimación de calendario; no sustituye valoración ni consejo médico.</p></section>
+<section class="card"><div class="section-heading"><div><p class="eyebrow">Calendario</p><h2>Próximos ciclos</h2></div><button id="today-button" class="secondary" type="button">Hoy</button></div><div id="calendar-list" class="calendar-list"></div></section>
+<section class="card"><div class="section-heading"><div><p class="eyebrow">Preferencias</p><h2>Configuración</h2></div></div><form id="settings-form" class="form-grid"><label>Fecha base<input id="settings-base-date" type="date" required></label><label>Duración del ciclo<input id="settings-cycle-length" type="number" min="1" max="60" required></label><button class="primary" type="submit">Actualizar</button></form><button id="clear-data" class="danger" type="button">Borrar todos los datos locales</button></section>
+</div>
+<footer><p>Sin cuentas, sin servidor y sin datos personales incluidos en el código.</p></footer>
+</main><script src="app.js"></script>
 </body>
 </html>
