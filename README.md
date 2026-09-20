@@ -1,19 +1,17 @@
 # Companion Dashboard
 
-Versión v8 de recuperación de la PWA.
+Actualización del calendario para mostrar la próxima ovulación y la próxima ventana Estrellita.
 
-## Correcciones
+## Cálculo futuro
 
-- Todas las referencias DOM se validan antes de usarse.
-- Se eliminó el acceso a `els.length` y otras propiedades inexistentes.
-- El calendario se renderiza independientemente.
-- Se añadió `app-v8.js` para evitar caché del script anterior.
-- Se actualizó el service worker a v8.
+Con fecha base del 28 de agosto de 2026 y ciclo de 28 días, la app muestra como referencia:
+- Ovulación del ciclo anterior: aproximadamente 10–11 de septiembre.
+- Siguiente inicio de ciclo: aproximadamente 25 de septiembre.
+- Siguiente ovulación: aproximadamente 8 de octubre.
+- Próxima ventana Estrellita: aproximadamente 7–9 de octubre.
+
+La aplicación calcula varios ciclos futuros y oculta eventos de ovulación ya pasados. Las fechas son aproximadas y no representan consentimiento, deseo ni predicción de conducta.
 
 ## Privacidad
 
-La configuración permanece en `localStorage`. No hay cuentas, servidor, analítica ni sincronización. Las fechas y fases son estimaciones y no representan consentimiento ni predicción de conducta.
-
-## Recuperación
-
-Abre la URL con `?v=8` en Safari normal. Si la aplicación conserva una versión previa, elimina el icono antiguo y vuelve a instalarla después de verificar la versión nueva.
+La configuración se guarda únicamente en `localStorage`. No hay cuentas, servidor, analítica ni sincronización.
