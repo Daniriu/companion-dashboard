@@ -1,0 +1,11 @@
+{
+  "name": "Companion Dashboard",
+  "short_name": "Companion",
+  "description": "Panel privado basado en datos locales del dispositivo.",
+  "lang": "es-MX",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f6fa",
+  "theme_color": "#172033",
+  "icons": []
+}
