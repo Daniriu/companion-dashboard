@@ -1,19 +1,26 @@
 # Companion Dashboard
 
-PWA privada y neutral para GitHub Pages. Esta versión añade recuperación de estado, migración de configuraciones anteriores, manejo visible de errores y renovación del caché.
+PWA privada y neutral para GitHub Pages. Incluye una ventana llamada **Estrellita de Mario** para recordar una ovulación estimada y fomentar un coqueteo respetuoso.
+
+## Estrellita de Mario
+
+La fecha central y la ventana de Estrellita se calculan solo a partir de la fecha base y la duración del ciclo. Son aproximaciones de calendario: no confirman ovulación, deseo, receptividad ni consentimiento.
+
+La tarjeta incluye un semáforo:
+- Verde: halagos seguros.
+- Amarillo: coqueteo solo con confianza y reciprocidad.
+- Rojo: evitar comentarios explícitos, presión, bromas sobre hormonas o insistencia.
+
+Las respuestas registradas se guardan únicamente en `localStorage` y no se envían a ninguna persona.
 
 ## Privacidad
 
-La fecha base, configuración y registros se guardan únicamente en `localStorage`. No hay cuentas, servidor, analítica ni sincronización. El repositorio no contiene nombres, fechas personales, mensajes privados ni datos de terceros.
-
-## Recuperación
-
-Si una versión anterior quedó almacenada, abre la URL con `?v=4`. Si la app muestra un error, usa **Reiniciar aplicación**. Esto elimina datos locales del sitio; exporta un respaldo antes si deseas conservar registros.
-
-## Limitaciones
-
-Las fases son estimaciones basadas en calendario y no confirman ovulación ni sustituyen consejo médico. No deben usarse como método anticonceptivo.
+No hay cuentas, servidor, analítica ni sincronización. El repositorio no contiene nombres, fechas personales, mensajes privados ni datos de terceros. `localStorage` no equivale a cifrado.
 
 ## Instalación
 
-En Safari: abre la URL publicada, pulsa **Compartir → Agregar a pantalla de inicio**. Si el icono antiguo conserva la versión anterior, elimínalo y vuelve a instalarlo después de confirmar la nueva interfaz.
+En Safari: abre la URL publicada y pulsa **Compartir → Agregar a pantalla de inicio**. Si la aplicación conserva una versión previa, abre la URL con `?v=5`, elimina el icono antiguo y vuelve a instalarla.
+
+## Alcance
+
+La app organiza recordatorios privados y comunicación respetuosa; no diagnostica, no predice conducta individual y no sustituye consejo médico.
